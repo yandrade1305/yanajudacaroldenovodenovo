@@ -42,17 +42,25 @@ int main() {
     scanf("%s", romanNumber);
 
     int decimal = romanToDecimal(romanNumber);
+    int decimalToBinary = decimal;
+    int array[10], i;    
 
-    printf("%s in base 2: ", romanNumber);
+    printf("%s na base 2: ", romanNumber);
 
-    for (int i = 11; i >= 0; i--) {
-        printf("%d", (decimal >> i) & 1);
-    }
+    for(i=0;decimalToBinary>0;i++){    
+        array[i]=decimalToBinary%2;    
+        decimalToBinary=decimalToBinary/2;    
+    }    
+     
+    for(i=i-1;i>=0;i--){    
+        printf("%d",array[i]);    
+    }    
+
     printf("\n");
 
-    printf("%s in base 10: %d\n", romanNumber, decimal);
+    printf("%s na base 10: %d\n", romanNumber, decimal);
 
-    printf("%s in base 16: %X\n", romanNumber, decimal);
+    printf("%s na base 16: %x\n", romanNumber, decimal);
 
     return 0;
 }
